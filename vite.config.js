@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/Omkar-s_Portfolio/',
+  base: process.env.GITHUB_PAGES ? '/Omkar-s_Portfolio/' : '/',
   server: {
     port: 3000,
     open: true

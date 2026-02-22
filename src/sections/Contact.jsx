@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react'
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
-import { FiMail, FiMapPin, FiPhone, FiSend, FiCheck, FiArrowRight } from 'react-icons/fi'
+import { FiMail, FiMapPin, FiPhone, FiSend, FiCheck, FiArrowRight, FiAlertCircle } from 'react-icons/fi'
 import SectionHeading from '../components/SectionHeading'
 import AnimatedSection from '../components/AnimatedSection'
 
@@ -13,6 +13,7 @@ export default function Contact() {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [isError, setIsError] = useState(false)
   const [focusedField, setFocusedField] = useState(null)
 
   const contactInfo = [
@@ -46,16 +47,42 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault()
     setIsSubmitting(true)
+    setIsError(false)
 
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000))
+    try {
+      // Use Web3Forms API
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: import.meta.env.VITE_WEB3FORMS_KEY || 'YOUR_ACCESS_KEY_HERE',
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          from_name: 'Portfolio Contact Form',
+        }),
+      })
 
-    setIsSubmitting(false)
-    setIsSubmitted(true)
-    setFormData({ name: '', email: '', subject: '', message: '' })
+      const data = await response.json()
 
-    // Reset submitted state after 3 seconds
-    setTimeout(() => setIsSubmitted(false), 3000)
+      if (data.success) {
+        setIsSubmitted(true)
+        setFormData({ name: '', email: '', subject: '', message: '' })
+        // Reset submitted state after 5 seconds
+        setTimeout(() => setIsSubmitted(false), 5000)
+      } else {
+        setIsError(true)
+      }
+    } catch (error) {
+      console.error('Form submission error:', error)
+      setIsError(true)
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -383,21 +410,27 @@ export default function Contact() {
                   disabled={isSubmitting || isSubmitted}
                   className="w-full py-5 rounded-xl font-bold text-lg flex items-center justify-center gap-3 transition-all relative overflow-hidden"
                   style={{
-                    background: isSubmitted
-                      ? 'linear-gradient(135deg, #22c55e, #16a34a)'
-                      : 'linear-gradient(135deg, #0ea5e9, #d946ef)',
-                    boxShadow: isSubmitted
-                      ? '0 10px 30px rgba(34, 197, 94, 0.4)'
-                      : '0 10px 30px rgba(14, 165, 233, 0.3)',
+                    background: isError
+                      ? 'linear-gradient(135deg, #ef4444, #dc2626)'
+                      : isSubmitted
+                        ? 'linear-gradient(135deg, #22c55e, #16a34a)'
+                        : 'linear-gradient(135deg, #0ea5e9, #d946ef)',
+                    boxShadow: isError
+                      ? '0 10px 30px rgba(239, 68, 68, 0.4)'
+                      : isSubmitted
+                        ? '0 10px 30px rgba(34, 197, 94, 0.4)'
+                        : '0 10px 30px rgba(14, 165, 233, 0.3)',
                   }}
                   whileHover={{
                     scale: isSubmitting || isSubmitted ? 1 : 1.02,
-                    boxShadow: '0 20px 40px rgba(14, 165, 233, 0.4)',
+                    boxShadow: isError
+                      ? '0 20px 40px rgba(239, 68, 68, 0.4)'
+                      : '0 20px 40px rgba(14, 165, 233, 0.4)',
                   }}
                   whileTap={{ scale: isSubmitting || isSubmitted ? 1 : 0.98 }}
                 >
                   {/* Shimmer effect */}
-                  {!isSubmitting && !isSubmitted && (
+                  {!isSubmitting && !isSubmitted && !isError && (
                     <motion.div
                       className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
                       animate={{ x: ['-100%', '100%'] }}
@@ -423,6 +456,15 @@ export default function Contact() {
                     >
                       <FiCheck className="w-6 h-6" />
                       <span>Message Sent!</span>
+                    </motion.div>
+                  ) : isError ? (
+                    <motion.div
+                      className="flex items-center gap-2 text-white"
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                    >
+                      <FiAlertCircle className="w-6 h-6" />
+                      <span>Error! Try Again</span>
                     </motion.div>
                   ) : (
                     <motion.div className="flex items-center gap-2 text-white relative z-10">

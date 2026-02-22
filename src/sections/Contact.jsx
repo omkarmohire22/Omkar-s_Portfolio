@@ -49,6 +49,14 @@ export default function Contact() {
     setIsSubmitting(true)
     setIsError(false)
 
+    const accessKey = import.meta.env.VITE_WEB3FORMS_KEY || 'YOUR_ACCESS_KEY_HERE';
+
+    if (accessKey === 'YOUR_ACCESS_KEY_HERE') {
+      alert('Please set your Web3Forms Access Key in the .env file!');
+      setIsSubmitting(false);
+      return;
+    }
+
     try {
       // Use Web3Forms API
       const response = await fetch('https://api.web3forms.com/submit', {
@@ -58,7 +66,7 @@ export default function Contact() {
           Accept: 'application/json',
         },
         body: JSON.stringify({
-          access_key: import.meta.env.VITE_WEB3FORMS_KEY || 'YOUR_ACCESS_KEY_HERE',
+          access_key: accessKey,
           name: formData.name,
           email: formData.email,
           subject: formData.subject,

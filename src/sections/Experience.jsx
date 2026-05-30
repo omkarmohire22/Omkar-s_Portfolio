@@ -22,7 +22,7 @@ export default function Experience() {
       degree: "B.Sc Computer Science",
       school: 'D.U.B.S.S.C. College',
       location: 'Ratnagiri',
-      duration: '2021 - 2024',
+      duration: '2022 - 2025',
       description: 'Completed Bachelor of Science in Computer Science with a focus on core computing fundamentals, programming languages, and system architecture.',
       status: 'Completed'
     },

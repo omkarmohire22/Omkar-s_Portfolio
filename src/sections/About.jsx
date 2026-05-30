@@ -159,10 +159,7 @@ export default function About() {
                 viewport={{ once: true }}
                 transition={{ delay: 0.2 }}
               >
-                I'm an MCA student and Full Stack Developer based in India, with a deep focus on combining 
-                modern web architectures with artificial intelligence. From engineering a scalable AI interview 
-                coach like <strong>HireReady</strong> to developing autonomous navigation segmentation engines with <strong>TerraVision</strong>, 
-                I specialize in solving hard, real-world problems.
+                I'm an MCA student and Full Stack Developer based in India, driven by a passion for creating robust, scalable applications that merge modern web architectures with state-of-the-art artificial intelligence. My technical journey is defined by a desire to tackle complex, real-world challenges—whether it's architecting intelligent platforms that empower users or developing sophisticated data-driven engines.
               </motion.p>
 
               <motion.p
@@ -172,9 +169,7 @@ export default function About() {
                 viewport={{ once: true }}
                 transition={{ delay: 0.3 }}
               >
-                I actively participate in hackathons (like the Duality AI Offroad Challenge) and 
-                build real-time applications such as <strong>Dev Collab</strong>, handling complex WebSocket connections and system design. 
-                I believe in shipping fast, architecting robustly, and pushing the boundaries of what web tech can do.
+                I thrive in fast-paced environments like hackathons, where rapid prototyping and innovative thinking are essential. By focusing on critical aspects like system design, real-time data handling, and seamless user experiences, I strive to build solutions that are not only performant but also highly impactful. I believe in shipping fast, maintaining high architectural standards, and constantly pushing the boundaries of what web technology can achieve.
               </motion.p>
 
               <motion.a

@@ -6,7 +6,7 @@ import AnimatedSection from '../components/AnimatedSection'
 export default function Hackathons() {
     const hackathons = [
         {
-            title: 'Duality AI Offroad Semantic Scene Segmentation Challenge',
+            title: 'UAI Hawkathon 2026',
             project: 'TerraVision',
             date: '2026',
             icon: <FiCpu />,

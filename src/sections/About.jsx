@@ -4,7 +4,9 @@ import { FiCode, FiDatabase, FiCpu, FiBarChart2, FiLayers } from 'react-icons/fi
 import SectionHeading from '../components/SectionHeading'
 import AnimatedSection from '../components/AnimatedSection'
 import { TiltCard, MorphingBlob } from '../components/AnimatedEffects'
-import AnimatedAvatar from '../components/AnimatedAvatar'
+
+
+
 
 export default function About() {
   const containerRef = useRef(null)
@@ -74,11 +76,58 @@ export default function About() {
         />
 
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
-          {/* Animated Avatar instead of repeating the photo */}
+          {/* Image with 3D tilt effect */}
           <AnimatedSection direction="left">
-            <div className="flex justify-center items-center">
-              <AnimatedAvatar />
-            </div>
+            <TiltCard className="relative">
+              <div className="relative group">
+                {/* Animated border */}
+                <motion.div
+                  className="absolute -inset-1 bg-gradient-to-r from-primary-500 via-accent-500 to-primary-500 rounded-2xl opacity-70 blur group-hover:opacity-100 transition-opacity"
+                  animate={{
+                    backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+                  }}
+                  transition={{ duration: 5, repeat: Infinity }}
+                  style={{ backgroundSize: '200% 200%' }}
+                />
+
+                <div className="relative aspect-square rounded-2xl overflow-hidden">
+                  {/* Profile photo */}
+                  <img
+                    src="/Omkar main.png"
+                    alt="About me"
+                    className="w-full h-full object-cover object-top"
+                    loading="lazy"
+                  />
+
+                  {/* Subtle gradient overlay at bottom */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-dark-300/60 via-transparent to-transparent" />
+
+                  {/* Floating badges */}
+                  {['React', 'Node.js', 'MongoDB'].map((tech, i) => (
+                    <motion.div
+                      key={tech}
+                      className="absolute px-3 py-1 bg-dark-100/80 backdrop-blur-sm rounded-full text-sm font-medium text-primary-400 border border-primary-500/20"
+                      style={{
+                        top: `${20 + i * 30}%`,
+                        right: i % 2 === 0 ? '5%' : 'auto',
+                        left: i % 2 !== 0 ? '5%' : 'auto',
+                      }}
+                      animate={{
+                        y: [0, -10, 0],
+                        rotate: [0, 5, -5, 0],
+                      }}
+                      transition={{
+                        duration: 3 + i,
+                        repeat: Infinity,
+                        delay: i * 0.5,
+                      }}
+                    >
+                      {tech}
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </TiltCard>
           </AnimatedSection>
 
           {/* Content */}
@@ -90,7 +139,7 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
               >
-                A passionate developer who loves creating{' '}
+                A creative engineer building{' '}
                 <motion.span
                   className="gradient-text inline-block"
                   animate={{
@@ -99,7 +148,7 @@ export default function About() {
                   transition={{ duration: 3, repeat: Infinity }}
                   style={{ backgroundSize: '200% 200%' }}
                 >
-                  amazing experiences
+                  intelligent systems
                 </motion.span>
               </motion.h3>
 
@@ -110,9 +159,10 @@ export default function About() {
                 viewport={{ once: true }}
                 transition={{ delay: 0.2 }}
               >
-                I'm an MCA student and Full Stack Developer based in India, with a passion for
-                creating beautiful and functional web applications. I have experience working
-                with modern technologies and frameworks, always striving to learn and improve.
+                I'm an MCA student and Full Stack Developer based in India, with a deep focus on combining 
+                modern web architectures with artificial intelligence. From engineering a scalable AI interview 
+                coach like <strong>HireReady</strong> to developing autonomous navigation segmentation engines with <strong>TerraVision</strong>, 
+                I specialize in solving hard, real-world problems.
               </motion.p>
 
               <motion.p
@@ -122,9 +172,9 @@ export default function About() {
                 viewport={{ once: true }}
                 transition={{ delay: 0.3 }}
               >
-                When I'm not coding, you can find me exploring new technologies,
-                contributing to open-source projects, or enjoying outdoor activities.
-                I believe in writing clean, maintainable code and creating user-centric designs.
+                I actively participate in hackathons (like the Duality AI Offroad Challenge) and 
+                build real-time applications such as <strong>Dev Collab</strong>, handling complex WebSocket connections and system design. 
+                I believe in shipping fast, architecting robustly, and pushing the boundaries of what web tech can do.
               </motion.p>
 
               <motion.a

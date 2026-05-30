@@ -199,6 +199,19 @@ export default function Hero() {
                   View Projects <FiZap className="text-primary-500 group-hover:scale-125 transition-transform" />
                 </span>
               </motion.a>
+
+              <motion.a
+                href="/Omkar Arun  Mohire.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group px-8 py-4 rounded-2xl font-bold bg-gradient-to-r from-gray-100 to-gray-200 dark:from-dark-100 dark:to-dark-200 border-2 border-transparent text-gray-900 dark:text-white hover:border-gray-300 dark:hover:border-white/20 transition-all shadow-lg"
+                whileHover={{ scale: 1.05, y: -5 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <span className="flex items-center gap-3">
+                  Download Resume <svg stroke="currentColor" fill="none" strokeWidth="2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 text-gray-600 dark:text-gray-400 group-hover:-translate-y-1 transition-transform" xmlns="http://www.w3.org/2000/svg"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                </span>
+              </motion.a>
             </motion.div>
 
             {/* Social Proof / Stats inside Hero */}
@@ -272,9 +285,9 @@ export default function Hero() {
                 }}
               >
                 <img
-                  src="/omkar.png"
+                  src="/Omkar main.png"
                   alt="Omkar Mohire"
-                  className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-700"
+                  className="w-full h-full object-cover object-top scale-100 group-hover:scale-105 transition-transform duration-700"
                 />
 
                 {/* Content Overlay */}
@@ -291,6 +304,7 @@ export default function Hero() {
                           href={social.href}
                           target="_blank"
                           rel="noopener noreferrer"
+                          aria-label={social.label}
                           className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-primary-500 transition-colors"
                           whileHover={{ y: -5 }}
                         >

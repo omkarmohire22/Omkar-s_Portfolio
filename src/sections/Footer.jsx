@@ -34,6 +34,7 @@ function MagneticSocialLink({ social, index }) {
       href={social.href}
       target="_blank"
       rel="noopener noreferrer"
+      aria-label={social.label}
       className="relative p-4 rounded-2xl bg-gray-100/80 dark:bg-dark-100/80 backdrop-blur-sm
                  text-gray-700 dark:text-gray-300 overflow-hidden group"
       style={{ x: springX, y: springY }}

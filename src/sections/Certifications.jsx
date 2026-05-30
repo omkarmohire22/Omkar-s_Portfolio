@@ -29,6 +29,22 @@ export default function Certifications() {
             link: '/Generative AI Foundations Certificate Program.pdf',
             color: 'from-green-500 to-emerald-500',
         },
+        {
+            title: 'Cloud Computing',
+            issuer: 'NPTEL / Swayam',
+            date: '2026',
+            icon: <FiAward />,
+            link: '/Cloud Computing - NPTEL.pdf',
+            color: 'from-indigo-500 to-purple-500',
+        },
+        {
+            title: 'Data Analytics With Python',
+            issuer: 'NPTEL / Swayam',
+            date: '2026',
+            icon: <FiAward />,
+            link: '/Dat Analytics With Python - NPTEL.pdf',
+            color: 'from-pink-500 to-rose-500',
+        },
     ]
 
     return (

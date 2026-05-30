@@ -20,7 +20,7 @@ export default function ParticleBackground() {
     const accentColor = isDark ? '217, 70, 239' : '162, 28, 175'
 
     // Create particles
-    const PARTICLE_COUNT = 35
+    const PARTICLE_COUNT = 55
     const particles = Array.from({ length: PARTICLE_COUNT }, () => ({
       x: Math.random() * width,
       y: Math.random() * height,
@@ -30,7 +30,7 @@ export default function ParticleBackground() {
       color: Math.random() > 0.5 ? primaryColor : accentColor,
     }))
 
-    const MAX_DIST = 120
+    const MAX_DIST = 150
 
     function draw() {
       ctx.clearRect(0, 0, width, height)

@@ -12,6 +12,48 @@ export default function Projects() {
 
   const projects = [
     {
+      title: 'TerraVision - Autonomous Off-Road Navigation',
+      description: 'A full-stack deep learning system that delivers real-time, pixel-level semantic segmentation of off-road terrain.',
+      longDescription: 'TerraVision solves autonomous navigation in unstructured environments by providing dense semantic maps of 10 terrain categories. Built for the Duality AI Offroad Challenge using a DINOv2 vision transformer and deployed at production scale.',
+      challenges: [
+        'Optimizing a custom ConvNeXt segmentation head for real-time inference.',
+        'Containerizing and deploying heavy machine learning models on a decoupled architecture.',
+        'Handling high visual similarity across 10 terrain classes with minimal miss rate.'
+      ],
+      image: 'https://images.unsplash.com/photo-1541625602330-2277a4c46182?w=600&h=400&fit=crop',
+      tags: ['PyTorch', 'FastAPI', 'Next.js', 'Docker', 'DINOv2'],
+      category: 'fullstack',
+      github: 'https://github.com/omkarmohire22/TerraVision-',
+      live: 'https://terra-vision-sigma.vercel.app/',
+      featured: true,
+    },
+    {
+      title: 'HireReady — AI Interview Coach',
+      description: 'A premium, AI-powered interview preparation platform designed to help candidates ace technical interviews.',
+      longDescription: 'HireReady simulates real-world interviews using advanced NLP and a voice-enabled AI. It adapts to user responses, provides radar charts for skill assessments, and generates personalized learning roadmaps to bridge knowledge gaps.',
+      challenges: [
+        'Designing a real-time conversational AI interviewer.',
+        'Architecting a modular Python backend for high-performance session processing.',
+        'Creating responsive data visualizations and an adaptive Next.js AppShell framework.'
+      ],
+      image: 'https://images.unsplash.com/photo-1573164713988-8665fc963095?w=600&h=400&fit=crop',
+      tags: ['Next.js', 'Python', 'AI/NLP', 'React'],
+      category: 'fullstack',
+      github: 'https://github.com/omkarmohire22/HireReady-.git',
+      live: '#',
+      featured: true,
+    },
+    {
+      title: 'Dev Collab',
+      description: 'A real-time collaborative development environment for coding and project management.',
+      image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop',
+      tags: ['React', 'Node.js', 'WebSockets', 'Tailwind'],
+      category: 'fullstack',
+      github: 'https://github.com/shravanihaj74/DevCollab-Real-Time-Project-Collaboration-Platform-for-Developers.git',
+      live: 'https://dev-collab-real-time-project-collab.vercel.app/',
+      featured: true,
+    },
+    {
       title: 'Imagify AI',
       description: 'An AI-powered application that generates stunning visual art from textual descriptions.',
       longDescription: 'Imagify AI is a sophisticated image generation platform that leverages OpenAI\'s DALL-E models to provide users with a seamless creative experience. It features a community showcase where users can share their prompt-engineered masterpieces.',
@@ -42,16 +84,6 @@ export default function Projects() {
       github: 'https://github.com/omkarmohire22/FITMATE-Companion.git',
       live: '#',
       featured: true,
-    },
-    {
-      title: 'Weather Snap',
-      description: 'A fast and lightweight weather application providing real-time forecasts and localized weather alerts with a minimal user interface.',
-      image: 'https://images.unsplash.com/photo-1592210454359-9043f067919b?w=600&h=400&fit=crop',
-      tags: ['React', 'OpenWeather API', 'Framer Motion'],
-      category: 'small',
-      github: 'https://github.com/omkarmohire22',
-      live: '#',
-      featured: false,
     },
     {
       title: 'CodeQuiz Pro',
@@ -382,6 +414,7 @@ function ProjectCard({ project, index, isHovered, onHover, onLeave, onClick }) {
                 href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={`View ${project.title} on GitHub`}
                 className="p-4 rounded-full text-white relative overflow-hidden"
                 style={{
                   background: 'rgba(255, 255, 255, 0.1)',
@@ -405,6 +438,7 @@ function ProjectCard({ project, index, isHovered, onHover, onLeave, onClick }) {
                 href={project.live}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={`View live demo of ${project.title}`}
                 className="p-4 rounded-full text-white relative overflow-hidden"
                 style={{
                   background: 'rgba(255, 255, 255, 0.1)',

@@ -49,9 +49,9 @@ export default function Contact() {
     setIsSubmitting(true)
     setIsError(false)
 
-    const accessKey = import.meta.env.VITE_WEB3FORMS_KEY || 'YOUR_ACCESS_KEY_HERE';
+    const accessKey = import.meta.env.VITE_WEB3FORMS_KEY || '6b4dab71-bae8-4df8-b714-9075196615dc';
 
-    if (accessKey === 'YOUR_ACCESS_KEY_HERE') {
+    if (!accessKey) {
       alert('Please set your Web3Forms Access Key in the .env file!');
       setIsSubmitting(false);
       return;

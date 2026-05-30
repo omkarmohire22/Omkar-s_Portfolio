@@ -21,6 +21,7 @@ const Experience = lazy(() => import('./sections/Experience'))
 const Contact = lazy(() => import('./sections/Contact'))
 const Footer = lazy(() => import('./sections/Footer'))
 const Certifications = lazy(() => import('./sections/Certifications'))
+const Hackathons = lazy(() => import('./sections/Hackathons'))
 const GithubActivity = lazy(() => import('./sections/GithubActivity'))
 
 // Minimal fallback that doesn't cause layout shift
@@ -84,6 +85,9 @@ function App() {
               </Suspense>
               <Suspense fallback={<SectionFallback />}>
                 <Certifications />
+              </Suspense>
+              <Suspense fallback={<SectionFallback />}>
+                <Hackathons />
               </Suspense>
               <Suspense fallback={<SectionFallback />}>
                 <Skills />

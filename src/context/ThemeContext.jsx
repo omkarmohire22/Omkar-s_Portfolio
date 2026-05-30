@@ -1,9 +1,8 @@
-import { createContext, useContext, useEffect, useRef, useState } from 'react'
+import { createContext, useContext, useEffect, useState } from 'react'
 
 const ThemeContext = createContext()
 
 export function ThemeProvider({ children }) {
-  // Initialize theme synchronously from localStorage (same logic as the blocking script in index.html)
   const [isDark, setIsDark] = useState(() => {
     if (typeof window !== 'undefined') {
       const saved = localStorage.getItem('theme')
@@ -13,12 +12,8 @@ export function ThemeProvider({ children }) {
     return true
   })
 
-  // Track if this is the first render (so we don't animate on load)
-  const isFirstRender = useRef(true)
-
   useEffect(() => {
     const root = window.document.documentElement
-
     if (isDark) {
       root.classList.add('dark')
       localStorage.setItem('theme', 'dark')
@@ -26,20 +21,9 @@ export function ThemeProvider({ children }) {
       root.classList.remove('dark')
       localStorage.setItem('theme', 'light')
     }
-
-    if (isFirstRender.current) {
-      // After the first paint, enable smooth color transitions for user-triggered toggles
-      // Use requestAnimationFrame to ensure this runs after the browser has painted
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          document.body.classList.add('theme-ready')
-          isFirstRender.current = false
-        })
-      })
-    }
   }, [isDark])
 
-  const toggleTheme = () => setIsDark(prev => !prev)
+  const toggleTheme = () => setIsDark(!isDark)
 
   return (
     <ThemeContext.Provider value={{ isDark, toggleTheme }}>

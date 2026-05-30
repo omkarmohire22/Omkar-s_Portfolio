@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { motion, useTransform, useScroll, useSpring, useMotionValue } from 'framer-motion'
 import { TypeAnimation } from 'react-type-animation'
 import { FiGithub, FiLinkedin, FiDownload, FiArrowDown, FiMail, FiCode, FiZap, FiPlus } from 'react-icons/fi'
-import { SiReact, SiNodedotjs, SiPython, SiMongodb } from 'react-icons/si'
+import { SiReact, SiNodedotjs, SiPython, SiMongodb, SiLeetcode } from 'react-icons/si'
 
 export default function Hero() {
   const containerRef = useRef(null)
@@ -43,6 +43,7 @@ export default function Hero() {
   const socialLinks = [
     { icon: FiGithub, href: 'https://github.com/omkarmohire22', label: 'GitHub' },
     { icon: FiLinkedin, href: 'https://www.linkedin.com/in/omkarmohire', label: 'LinkedIn' },
+    { icon: SiLeetcode, href: 'https://leetcode.com/u/mKTTnZvcLa/', label: 'LeetCode' },
   ]
 
   return (

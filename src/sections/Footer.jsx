@@ -1,5 +1,6 @@
 import { motion, useMotionValue, useSpring } from 'framer-motion'
 import { FiGithub, FiLinkedin, FiTwitter, FiInstagram, FiHeart, FiArrowUp, FiMail, FiCode } from 'react-icons/fi'
+import { SiLeetcode } from 'react-icons/si'
 import { useRef, useState } from 'react'
 
 // Magnetic social link component
@@ -97,6 +98,7 @@ export default function Footer() {
   const socialLinks = [
     { icon: FiGithub, href: 'https://github.com/omkarmohire22', label: 'GitHub' },
     { icon: FiLinkedin, href: 'https://www.linkedin.com/in/omkarmohire', label: 'LinkedIn' },
+    { icon: SiLeetcode, href: 'https://leetcode.com/u/mKTTnZvcLa/', label: 'LeetCode' },
   ]
 
   const footerLinks = [

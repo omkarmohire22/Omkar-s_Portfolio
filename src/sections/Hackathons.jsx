@@ -14,6 +14,16 @@ export default function Hackathons() {
             link: 'https://terra-vision-sigma.vercel.app/',
             certificate: '/Omkar Mohire_Certificate_Devnovate.pdf',
             color: 'from-purple-500 to-indigo-500',
+        },
+        {
+            title: 'DevFusion: The Developers Hackathon 2.0',
+            project: 'DevCollab',
+            date: '2024',
+            icon: <FiUsers />,
+            description: 'Built a real-time project collaboration platform (GitHub-meets-Notion-meets-Slack) for developer teams. Developed collaboratively by Team Bug Smashers.',
+            link: 'https://dev-collab-real-time-project-collab.vercel.app/',
+            certificate: null,
+            color: 'from-blue-500 to-cyan-500',
         }
     ]
 

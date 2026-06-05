@@ -52,12 +52,11 @@ export default function Hackathons() {
                                         <h3 className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-primary-500 transition-colors">
                                             {hackathon.title}
                                         </h3>
-                                        <p className="text-sm font-bold text-gray-800 dark:text-gray-300 mt-1 mb-1">
-                                            Project: {hackathon.project}
-                                        </p>
-                                        <span className="text-xs font-semibold px-2 py-1 bg-gray-200 dark:bg-gray-800 rounded-full text-gray-700 dark:text-gray-400">
-                                            {hackathon.date}
-                                        </span>
+                                        <div className="mt-2 mb-2">
+                                            <span className="text-xs font-semibold px-2 py-1 bg-gray-200 dark:bg-gray-800 rounded-full text-gray-700 dark:text-gray-400">
+                                                {hackathon.date}
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -70,20 +69,7 @@ export default function Hackathons() {
                                         <span className="text-xs font-bold uppercase tracking-widest text-primary-500 dark:text-primary-400">
                                             Participation
                                         </span>
-                                        {hackathon.link !== '#' && (
-                                            <motion.a
-                                                href={hackathon.link}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="flex items-center gap-2 text-sm font-bold text-gray-900 dark:text-white hover:text-primary-500 transition-colors"
-                                                whileHover={{ x: 5 }}
-                                            >
-                                                View Project <FiExternalLink />
-                                            </motion.a>
-                                        )}
-                                    </div>
-                                    {hackathon.certificate && (
-                                        <div className="flex justify-end mt-1">
+                                        {hackathon.certificate && (
                                             <motion.a
                                                 href={hackathon.certificate}
                                                 target="_blank"
@@ -93,8 +79,8 @@ export default function Hackathons() {
                                             >
                                                 View Certificate <FiAward />
                                             </motion.a>
-                                        </div>
-                                    )}
+                                        )}
+                                    </div>
                                 </div>
                             </motion.div>
                         </AnimatedSection>

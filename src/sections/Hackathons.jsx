@@ -18,7 +18,7 @@ export default function Hackathons() {
         {
             title: 'DevFusion: The Developers Hackathon 2.0',
             project: 'DevCollab',
-            date: '2024',
+            date: '2026',
             icon: <FiUsers />,
             description: 'Built a real-time project collaboration platform (GitHub-meets-Notion-meets-Slack) for developer teams. Developed collaboratively by Team Bug Smashers.',
             link: 'https://dev-collab-real-time-project-collab.vercel.app/',

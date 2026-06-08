@@ -22,7 +22,7 @@ export default function Hackathons() {
             icon: <FiUsers />,
             description: 'Built a real-time project collaboration platform (GitHub-meets-Notion-meets-Slack) for developer teams. Developed collaboratively by Team Bug Smashers.',
             link: 'https://dev-collab-real-time-project-collab.vercel.app/',
-            certificate: null,
+            certificate: '/Devfusion Hackathon Certificate.pdf',
             color: 'from-blue-500 to-cyan-500',
         }
     ]
